@@ -20,7 +20,7 @@ using namespace std;
 
 int main()
 {
-  int guesses = 1;
+  int guesses = 0;
   srand(time(NULL));
   int answer = rand() % 101;
   int guess = 101;
