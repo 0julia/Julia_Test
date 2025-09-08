@@ -12,7 +12,7 @@ int main()
   cin.get(str, len);
   int count = 0;
   for (int i = 0; i < len; i++){
-    if (str[i] != '.' && str[i] != ',' && str[i] != ';' && str[i] != ':' && str[i] != '\0' && str[i] != ' '){
+    if (str[i] != '.' && str[i] != ',' && str[i] != ';' && str[i] != ':' && str[i] != '\0' && str[i] != '(' && str[i] != ')' && str[i] != '[' && str[i] != ']' && str[i] != '/' && str[i] != ' '){
       newstr[count] = str[i];
       count++;
     }
@@ -26,6 +26,11 @@ int main()
       rvsstr[count] = newstr[len-i];
       count++;
     }
+  }
+  if (strcmp(newstr, rvsstr) == 0){
+    cout << "It is a palindrome!!!" << endl;
+  }else{
+    cout << "It's not a palindrome!" << endl;
   }
   cout << "length of rvs string: " << strlen(rvsstr) << endl;
   cout<< newstr <<endl;
