@@ -17,12 +17,18 @@ int main()
       count++;
     }
   }
+  len = strlen(newstr);
+  cout << "Length of string: " << len << endl;
   char rvsstr[len];
-  
-  //for (int i =0; i<len; i++){
-    
-    //}
-  cout<< str <<endl;
+  count = 0;
+  for (int i =0; i<=len; i++){
+    if (newstr[len-i] != '\0'){
+      rvsstr[count] = newstr[len-i];
+      count++;
+    }
+  }
+  cout << "length of rvs string: " << strlen(rvsstr) << endl;
+  cout<< newstr <<endl;
   cout << "new string: " << rvsstr << endl;
   return 0;
 }
