@@ -1,7 +1,7 @@
 /*
   Julia Larson
   9/10/25
-  This will read in a series of 19 or less characters
+  This will read in a series of 39 or less characters
   it will print "palindrome" if the string is a palindrome and "not palindrome" if it is not
 */
 
@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-  int len = 20;
+  int len = 40;
   char str[len];
   char newstr[len];
   cin.get(str, len);
