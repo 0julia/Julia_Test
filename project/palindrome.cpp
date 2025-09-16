@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-  int len = 40;
+  int len = 81;
   char str[len];
   char newstr[len];
   cin.get(str, len);
