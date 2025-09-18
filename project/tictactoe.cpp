@@ -29,7 +29,9 @@ int main()
 	}
 	cout<<endl;
       }
-
+      
+      
+      allowed = 'n';
       while(allowed == 'n')
 	{
 	  cout << endl << "It is " << turn << "'s turn." << endl;
@@ -52,26 +54,18 @@ int main()
 	}
 
       //the new board
-      cout << "You placed your piece on " << board[locx][locy] << endl << endl;
       board[locx][locy] = turn;
-      for(int i = 0; i <4;i++){
-	for(int j = 0; j <4; j++){
-	  cout<<board[i][j] << " ";
-	}
-	cout<<endl;
-      }
-
       done = win(board);
-      cout << "Done = " << done << endl;
-
       
       //switch turns
-      if (turn == 'X'){
+      if (turn == 'X' && done == 'n'){
 	turn = 'O';
       }else{
 	turn = 'X';
       }
     }
+  cout << endl << endl << "YAY!!! " << turn << " WON!!!!" <<endl;
+  cout << "Good Job, game over";
   return 0;
 }
 
@@ -81,6 +75,7 @@ char possibleMoves(int x,int y, char board[4][4])
   {
     return 'y';
   } else{
+    cout << "That is not a valid move, try again" << endl;
     return 'n';
   }
 }
@@ -96,5 +91,12 @@ char win(char board[4][4])
         return 'y';
       }
     }
+  if(board[1][1] != ' ' && board[1][1] == board[2][2] && board[2][2] == board[3][3]){
+    return 'y';
+    }
+  if(board[1][3] != ' ' && board[1][3] == board[2][2] && board[2][2] == board[3][1]){
+    return 'y';
+    }
+
   return 'n';
 }
