@@ -77,7 +77,7 @@ int main(){
 	cout << "That is not a valid command" << endl << "The valid commands are: ADD, DELETE, PRINT, or QUIT" << endl;
     }
     }
-  cout << "Bye bye!";
+  cout << "Bye bye";
   return 0;
 }
 
