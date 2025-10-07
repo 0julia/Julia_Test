@@ -27,11 +27,14 @@ int main(){
   //define vector
   vector<student*> bigstruct;
 
+  //while the user hasn't quit the loop...
   while(strcmp(command, "QUIT") != 0)
     {
+      //figure out what they want to do
       cout << "What would you like to do?" << endl;
       cin >> command;
 
+      //asks the user the student info when 
     if(strcmp(command, "ADD") == 0){
 
       student* littlestruct = new student();
@@ -45,18 +48,17 @@ int main(){
       cout << "What is the student's ID?" << endl;
       cin >> littlestruct->studentid;
 
-      // how to make sure there are 2 decimals at all time
       cout << "What is the student's GPA?" << endl;
       cin >> littlestruct->gpa;
 
       bigstruct.push_back(littlestruct);
 
-
+      //prints out the student info
     }else if(strcmp(command, "PRINT") == 0){
         for (size_t i = 0; i < bigstruct.size(); ++i) {
   	  cout << "Name: " << bigstruct[i]->firstname << " " << bigstruct[i]->lastname << ", Student ID: " << bigstruct[i]->studentid << ", Student's GPA: " << fixed << setprecision(2) << bigstruct[i]->gpa << endl;
 	}
-	
+	//deletes student info
     }else if(strcmp(command, "DELETE") == 0){
       int id;
       cout << "What is the ID of the student you would like to delete?" << endl;
@@ -70,12 +72,12 @@ int main(){
             ++it;
         }
     }
-
+    //if the user didn't imput a valid command...
     }else if(strcmp(command, "QUIT") != 0) {
 	cout << "That is not a valid command" << endl << "The valid commands are: ADD, DELETE, PRINT, or QUIT" << endl;
     }
     }
-  
+  cout << "Bye bye!";
   return 0;
 }
 
