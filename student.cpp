@@ -21,6 +21,11 @@ struct student{
   float gpa;
 };
 
+//defining functions
+void add(vector<student*>& bigtest);
+void print(vector<student*>& bigtest);
+void remove(vector<student*>& bigtest);
+
 int main(){
   char command[20] = "";
 
@@ -36,7 +41,45 @@ int main(){
 
       //asks the user the student info when 
     if(strcmp(command, "ADD") == 0){
+      
+      add(bigstruct);
+      
+      //prints out the student info
+    }else if(strcmp(command, "PRINT") == 0){
+      print(bigstruct);
 
+    //deletes student info
+    }else if(strcmp(command, "DELETE") == 0){
+      remove(bigstruct);
+      /*
+      int id;
+      cout << "What is the ID of the student you would like to delete?" << endl;
+      cin >> id;
+      auto it = bigstruct.begin();
+    while (it != bigstruct.end()) {
+      if ((*it)->studentid == id) {
+	delete *it;
+            it = bigstruct.erase(it); // Erase the element and get a new iterator
+            break; // Assuming only one element needs to be removed
+        } else {
+            ++it;
+        }
+      */
+      //}
+    //if the user didn't imput a valid command...
+    }else if(strcmp(command, "QUIT") != 0) {
+	cout << "That is not a valid command" << endl << "The valid commands are: ADD, DELETE, PRINT, or QUIT" << endl;
+    }
+    }
+  cout << "Bye bye!!!";
+  return 0;
+}
+
+
+void add(vector<student*>& bigstruct)
+{
+  cout << "You just added a student to the repository" << endl;
+  
       student* littlestruct = new student();
 
       cout << "What is the student's first name?" << endl;
@@ -53,32 +96,29 @@ int main(){
 
       bigstruct.push_back(littlestruct);
 
-      //prints out the student info
-    }else if(strcmp(command, "PRINT") == 0){
-        for (size_t i = 0; i < bigstruct.size(); ++i) {
-  	  cout << "Name: " << bigstruct[i]->firstname << " " << bigstruct[i]->lastname << ", Student ID: " << bigstruct[i]->studentid << ", Student's GPA: " << fixed << setprecision(2) << bigstruct[i]->gpa << endl;
-	}
-	//deletes student info
-    }else if(strcmp(command, "DELETE") == 0){
-      int id;
+      //  return bigtest;
+}
+
+void print(vector<student*>& bigstruct)
+{
+  for (size_t i = 0; i < bigstruct.size(); ++i) {
+    cout << "Name: " << bigstruct[i]->firstname << " " << bigstruct[i]->lastname << ", Student ID: " << bigstruct[i]->studentid << ", Student's GPA: " << fixed << setprecision(2) << bigstruct[i]->gpa << endl;
+  }
+}
+
+void remove(vector<student*>& bigstruct)
+{
+        int id;
       cout << "What is the ID of the student you would like to delete?" << endl;
       cin >> id;
       auto it = bigstruct.begin();
     while (it != bigstruct.end()) {
       if ((*it)->studentid == id) {
+	delete *it;
             it = bigstruct.erase(it); // Erase the element and get a new iterator
             break; // Assuming only one element needs to be removed
         } else {
             ++it;
         }
     }
-    //if the user didn't imput a valid command...
-    }else if(strcmp(command, "QUIT") != 0) {
-	cout << "That is not a valid command" << endl << "The valid commands are: ADD, DELETE, PRINT, or QUIT" << endl;
-    }
-    }
-  cout << "Bye bye";
-  return 0;
 }
-
-
